@@ -1,0 +1,23 @@
+name: GCP OIDC Access Token
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  get-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Authenticate to GCP via WIF
+        uses: google-github-actions/auth@v2
+        with:
+          token_format: access_token
+          workload_identity_provider: 'projects/208771875438/locations/global/workloadIdentityPools/gcp-labs-6db1oc31/providers/iam-lab-7-gh-pool-oidc-provider'
+          service_account: 'iam-lab-7-target@gcp-labs-6db1oc31.iam.gserviceaccount.com'
+
+      - name: Show access token
+        run: |
+          gcloud auth print-access-token
