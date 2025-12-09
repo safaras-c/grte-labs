@@ -15,7 +15,7 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           token_format: access_token
-          workload_identity_provider: 'projects/208771875438/locations/global/workloadIdentityPools/gcp-labs-6db1oc31/providers/iam-lab-7-gh-pool-oidc-provider'
+          workload_identity_provider: 'projects/208771875438/locations/global/workloadIdentityPools/iam-lab-7-gh-pool/providers/iam-lab-7-gh-pool-oidc-provider'
           service_account: 'iam-lab-7-target@gcp-labs-6db1oc31.iam.gserviceaccount.com'
 
       - name: Show access token
